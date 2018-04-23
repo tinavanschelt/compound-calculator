@@ -8,6 +8,8 @@ import NumericInput from '../../components/NumericInput';
 
 import Wrapper from './Wrapper';
 
+import { setCalculatedData } from './actions';
+
 class Calculator extends Component {
   constructor(props) {
     super(props);
@@ -34,12 +36,14 @@ class Calculator extends Component {
   }
 
   processCalculatorResult(monthlyData) {
+    const { onSetCalculatedData } = this.props;
+
     const processedData = monthlyData.reduce((accumulator, amount, index) => {
       accumulator[index] = { month: index, totalAmount: amount };
       return accumulator;
     }, {});
 
-    console.log(processedData);
+    onSetCalculatedData(processedData);
   }
 
   handleInputChange(e) {
@@ -93,8 +97,10 @@ class Calculator extends Component {
   }
 }
 
+const mapStateToProps = state => ({});
+
 export const mapDispatchToProps = dispatch => ({
   onSetCalculatedData: data => dispatch(setCalculatedData(data))
 });
 
-export default connect(mapDispatchToProps)(Calculator);
+export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

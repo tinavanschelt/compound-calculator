@@ -6,7 +6,7 @@ import { fromJS } from 'immutable';
 import { SET_CALCULATED_DATA } from './actions';
 
 const initialState = fromJS({
-  calculatedData: ''
+  calculatedData: {}
 });
 
 export default (state = initialState, action) => {
