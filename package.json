@@ -2,16 +2,14 @@
   "name": "compound-calculator",
   "private": true,
   "version": "1.0.0",
-  "description":
-    "A basic compound interest calculator that visually displays results.",
+  "description": "A basic compound interest calculator that visually displays results.",
   "main": "index.js",
   "repository": "https://github.com/tinavanschelt/compound-calculator",
   "author": "tinavanschelt <tinavanschelt@gmail.com>",
   "license": "MIT",
   "scripts": {
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
-    "build":
-      "webpack && uglifyjs ./public/dist/bundle.js -c -m -o ./public/dist/bundle.min.js"
+    "build": "webpack && uglifyjs ./public/dist/bundle.js -c -m -o ./public/dist/bundle.min.js"
   },
   "dependencies": {
     "babel-loader": "^7.1.4",
@@ -26,6 +24,8 @@
     "recharts": "^1.0.0-beta.10",
     "redux": "^4.0.0",
     "redux-immutable": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
     "styled-components": "^3.2.6",
     "superagent": "^3.8.2",
     "uglify-js": "^3.3.22",
