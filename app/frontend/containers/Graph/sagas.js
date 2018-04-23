@@ -2,9 +2,8 @@
  * Graph Sagas
  */
 
-import { fromJS } from 'immutable';
-import request from '../../utils/request';
 import { put, select, call, takeEvery, fork } from 'redux-saga/effects';
+import request from '../../utils/request';
 
 import { GET_CURRENCY_RATES, setCurrencyRates } from './actions';
 import { makeSelectCurrencies } from './selectors';
@@ -18,7 +17,11 @@ export function* fetchCurrencyRates() {
   // Update API
   try {
     const { rates } = yield call(request, requestUrl);
+
+    // add Euros to the provided rates as -1 and set rates in the redux store
+    // (using a negative value to ensure that it is unique)
     if (rates) {
+      rates.EU = -1;
       yield put(setCurrencyRates(rates));
     }
   } catch (error) {

@@ -6,25 +6,42 @@ import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 import Select from '../../components/Select';
 
 import { getCurrencyRates } from './actions';
+import { setConvertedData } from '../Calculator/actions';
 
 class Graph extends Component {
-  componentWillReceiveProps(props) {
-    const { onGetCurrencyRates } = props;
+  componentWillReceiveProps(prevProps) {
+    const { convertedData, onGetCurrencyRates } = this.props;
     const currencies = 'USD,GBP,ZAR';
-    onGetCurrencyRates(currencies);
+
+    if (convertedData !== prevProps.convertedData) {
+      console.log('FIRING!');
+      onGetCurrencyRates(currencies);
+    }
   }
 
-  convertDataToCurrency(e, calculatedData) {
+  convertDataToCurrency(e) {
     const { target } = e;
     const { value } = target;
 
-    // map deur en maal met value
-    const currencySpecificData = calculatedData;
+    const { onSetConvertedData, calculatedData } = this.props;
 
-    // calculatedData.map((data)) => {
-    //   currencySpecificData
-    // }
-    console.log('currency!', value);
+    if (value !== 'default') {
+      if (value == -1) {
+        onSetConvertedData(calculatedData);
+      } else {
+        const convertedData = [];
+
+        calculatedData.map(data => {
+          const convertedAmount = data.totalAmount * value;
+          convertedData.push({
+            month: data.month,
+            totalAmount: convertedAmount
+          });
+        });
+
+        onSetConvertedData(convertedData);
+      }
+    }
   }
 
   render() {
@@ -53,14 +70,18 @@ class Graph extends Component {
 
 const mapStateToProps = state => ({
   calculatedData: state.getIn(['calculator', 'calculatedData']),
+  convertedData: state.getIn(['calculator', 'convertedData']),
   currencyRates: state.getIn(['graph', 'currencyRates'])
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onGetCurrencyRates: currencies => dispatch(getCurrencyRates(currencies))
+  onGetCurrencyRates: currencies => dispatch(getCurrencyRates(currencies)),
+  onSetConvertedData: data => dispatch(setConvertedData(data))
 });
 
 Graph.propTypes = {
+  calculatorRates: PropTypes.object,
+  convertedRates: PropTypes.object,
   currencyRates: PropTypes.object
 };
 
