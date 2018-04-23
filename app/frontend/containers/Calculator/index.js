@@ -111,10 +111,6 @@ class Calculator extends Component {
               </Button>
             </GridItem>
           </Grid>
-
-          <Button onClick={this.handleSubmit} fill="true">
-            Calculate
-          </Button>
         </Form>
       </Wrapper>
     );
