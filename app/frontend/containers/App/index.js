@@ -9,7 +9,7 @@ import GridItem from '../../components/GridItem';
 
 class App extends Component {
   render() {
-    const { calculatedData } = this.props;
+    const { convertedData } = this.props;
 
     return (
       <Grid custom="1fr 2fr">
@@ -17,7 +17,7 @@ class App extends Component {
           <Calculator className="Calculator" />
         </GridItem>
         <GridItem>
-          <Graph data={calculatedData} />
+          <Graph data={convertedData} />
         </GridItem>
       </Grid>
     );
@@ -25,11 +25,11 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  calculatedData: state.getIn(['calculator', 'calculatedData'])
+  convertedData: state.getIn(['calculator', 'convertedData'])
 });
 
 App.propTypes = {
-  calculatedData: PropTypes.array
+  convertedData: PropTypes.array
 };
 
 export default connect(mapStateToProps)(App);
