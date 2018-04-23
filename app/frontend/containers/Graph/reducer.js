@@ -1,5 +1,5 @@
 /**
- * Calculator Reducer
+ * Graph Reducer
  */
 
 import { fromJS } from 'immutable';
