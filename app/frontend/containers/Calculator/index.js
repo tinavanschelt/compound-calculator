@@ -4,6 +4,8 @@ import request from 'superagent';
 
 import Button from '../../components/Button';
 import Form from '../../components/Form';
+import Grid from '../../components/Grid';
+import GridItem from '../../components/GridItem';
 import NumericInput from '../../components/NumericInput';
 
 import Wrapper from './Wrapper';
@@ -61,36 +63,57 @@ class Calculator extends Component {
       <Wrapper>
         <h1>Compound Interest Calculator</h1>
         <Form>
-          <NumericInput
-            label="Base Amount"
-            name="base"
-            onChange={this.handleInputChange}
-            symbol="€"
-            alignSymbol="left"
-          />
-          <NumericInput
-            label="Regular Monthly Deposit"
-            name="deposit"
-            onChange={this.handleInputChange}
-            symbol="€"
-            alignSymbol="left"
-          />
-          <NumericInput
-            label="Interest Rate"
-            name="interest"
-            onChange={this.handleInputChange}
-            symbol="%"
-            alignSymbol="right"
-          />
-          <NumericInput
-            label="Period"
-            name="period"
-            onChange={this.handleInputChange}
-            symbol="years"
-            alignSymbol="right"
-          />
+          <Grid columns="2">
+            <GridItem col="1 / span 2">
+              <NumericInput
+                label="Base Amount"
+                name="base"
+                onChange={this.handleInputChange}
+                symbol="€"
+                alignSymbol="left"
+              />
+            </GridItem>
+            <GridItem col="1 / span 2">
+              <NumericInput
+                label="Regular Monthly Deposit"
+                name="deposit"
+                onChange={this.handleInputChange}
+                symbol="€"
+                alignSymbol="left"
+              />
+            </GridItem>
+            <GridItem col="1 / span 2">
+              <NumericInput
+                label="Interest Rate"
+                name="interest"
+                onChange={this.handleInputChange}
+                symbol="%"
+                alignSymbol="right"
+              />
+            </GridItem>
+            <GridItem col="1 / span 2">
+              <NumericInput
+                label="Period"
+                name="period"
+                onChange={this.handleInputChange}
+                symbol="years"
+                alignSymbol="right"
+              />
+            </GridItem>
+            <GridItem col="1">
+              <Button onClick={this.handleSubmit} fill="true">
+                Calculate
+              </Button>
+            </GridItem>
+            <GridItem col="2">
+              <Button onClick={this.handleSubmit} fill="true">
+                Clear Calculator
+              </Button>
+            </GridItem>
+          </Grid>
+
           <Button onClick={this.handleSubmit} fill="true">
-            Calculate Interest Rate
+            Calculate
           </Button>
         </Form>
       </Wrapper>
