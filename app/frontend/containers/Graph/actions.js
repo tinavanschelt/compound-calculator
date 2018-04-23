@@ -6,7 +6,6 @@ export const GET_CURRENCY_RATES = 'GET_CURRENCY_RATES';
 export const SET_CURRENCY_RATES = 'SET_CURRENCY_RATES';
 
 export function getCurrencyRates(currencies) {
-  console.log('BOOM!');
   return {
     type: GET_CURRENCY_RATES,
     currencies

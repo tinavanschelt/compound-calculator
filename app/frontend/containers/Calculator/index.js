@@ -23,7 +23,6 @@ class Calculator extends Component {
   handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log('submitting!', this.state);
 
     request
       .post('/calculator')

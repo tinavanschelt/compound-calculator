@@ -2,12 +2,19 @@
  * Redux Store
  */
 
-import { createStore, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
+import createSagaMiddleware from 'redux-saga';
 import reducers from './reducers';
+import sagas from './sagas';
+
+const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore(initialState = {}) {
-  const enhancers = [];
+  const sagaMiddleware = createSagaMiddleware();
+
+  const middlewares = [sagaMiddleware];
+  const enhancers = [applyMiddleware(...middlewares)];
 
   // Load redux dev tools on development
   const composeEnhancers =
@@ -24,6 +31,14 @@ export default function configureStore(initialState = {}) {
     fromJS(initialState),
     composeEnhancers(...enhancers)
   );
+
+  store.runSaga = sagaMiddleware.run(sagas);
+
+  if (module.hot) {
+    module.hot.accept('./reducers', () => {
+      store.replaceReducer(require('./reducers').default);
+    });
+  }
 
   return store;
 }
