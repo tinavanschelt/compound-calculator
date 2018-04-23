@@ -101,8 +101,7 @@ class Calculator extends Component {
 const mapStateToProps = state => ({});
 
 export const mapDispatchToProps = dispatch => ({
-  onSetCalculatedData: data => dispatch(setCalculatedData(data)),
-  onSetCurrencyRates: data => dispatch(setCurrencyRates(data))
+  onSetCalculatedData: data => dispatch(setCalculatedData(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);
