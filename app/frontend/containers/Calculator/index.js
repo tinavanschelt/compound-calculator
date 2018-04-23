@@ -38,9 +38,10 @@ class Calculator extends Component {
   processCalculatorResult(monthlyData) {
     const { onSetCalculatedData } = this.props;
 
-    const processedData = monthlyData.reduce((accumulator, amount, index) => {
-      accumulator[index] = { month: index, totalAmount: amount };
-      return accumulator;
+    const processedData = [];
+
+    monthlyData.map((amount, index) => {
+      processedData.push({ month: index, totalAmount: amount });
     }, {});
 
     onSetCalculatedData(processedData);
@@ -100,7 +101,8 @@ class Calculator extends Component {
 const mapStateToProps = state => ({});
 
 export const mapDispatchToProps = dispatch => ({
-  onSetCalculatedData: data => dispatch(setCalculatedData(data))
+  onSetCalculatedData: data => dispatch(setCalculatedData(data)),
+  onSetCurrencyRates: data => dispatch(setCurrencyRates(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

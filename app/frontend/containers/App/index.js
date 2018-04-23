@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Calculator from '../Calculator';
-import Graph from '../../components/Graph';
+import Graph from '../Graph';
 import Grid from '../../components/Grid';
 import GridItem from '../../components/GridItem';
 
 class App extends Component {
   render() {
+    const { calculatedData } = this.props;
+
     return (
       <Grid custom="1fr 2fr">
         <GridItem>
           <Calculator className="Calculator" />
         </GridItem>
         <GridItem>
-          <Graph data={this.props.calculatedData} />
+          <Graph data={calculatedData} />
         </GridItem>
       </Grid>
     );
@@ -27,7 +29,7 @@ const mapStateToProps = state => ({
 });
 
 App.propTypes = {
-  calculatedData: PropTypes.string
+  calculatedData: PropTypes.array
 };
 
 export default connect(mapStateToProps)(App);
