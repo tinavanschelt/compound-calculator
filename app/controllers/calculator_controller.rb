@@ -4,22 +4,24 @@ class CalculatorController < ApplicationController
     def create
       base_amount = params[:base].to_f
       monthly_deposit = params[:deposit].to_f
-      interest_rate = params[:interest].to_f / 100
+      
+      interest_rate = (params[:interest].to_f / 12) / 100
+      
       calculation_period = params[:period].to_f
-      months = calculation_period * 12
-      puts interest_rate
+      months = (calculation_period * 12)
 
-      lala = []
+      monthlyTotals = []
 
-      1.upto(months) { |month| 
-        if month == 1
-          # P(1 + i)
-          lala.push(base_amount * (1 + interest_rate))
+      0.upto(months) { |month|
+        if month == 0
+          monthlyTotals.push(base_amount.round(2))
+          puts "#{month} #{base_amount.round(2)}"
         else
-          lala.push((base_amount * (1 + interest_rate)) * month)
+          monthlyTotals.push(((monthlyTotals[month - 1] + monthly_deposit) * (1 + interest_rate)).round(2))
+          puts "#{month} #{(((monthlyTotals[month - 1] + monthly_deposit) * (1 + interest_rate)).round(2))}"
         end
       }
 
-      render json: lala
+      render json: monthlyTotals
     end
 end

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import request from 'superagent';
 
@@ -36,6 +36,13 @@ class Calculator extends Component {
       });
   }
 
+  clearCalculator(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    this.state = {};
+  }
+
   processCalculatorResult(monthlyData) {
     const { onSetCalculatedData, onSetConvertedData } = this.props;
 
@@ -59,10 +66,12 @@ class Calculator extends Component {
   }
 
   render() {
+    const { calculatedData } = this.props;
+
     return (
       <Wrapper>
         <h1>Compound Interest Calculator</h1>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <Grid columns="2">
             <GridItem col="1 / span 2">
               <NumericInput
@@ -71,6 +80,7 @@ class Calculator extends Component {
                 onChange={this.handleInputChange}
                 symbol="€"
                 alignSymbol="left"
+                required
               />
             </GridItem>
             <GridItem col="1 / span 2">
@@ -80,34 +90,41 @@ class Calculator extends Component {
                 onChange={this.handleInputChange}
                 symbol="€"
                 alignSymbol="left"
+                required
               />
             </GridItem>
             <GridItem col="1 / span 2">
               <NumericInput
-                label="Interest Rate"
+                label="Annual Interest Rate"
                 name="interest"
                 onChange={this.handleInputChange}
                 symbol="%"
                 alignSymbol="right"
+                required
               />
             </GridItem>
             <GridItem col="1 / span 2">
               <NumericInput
-                label="Period"
+                label="Calculation Period"
                 name="period"
                 onChange={this.handleInputChange}
                 symbol="years"
                 alignSymbol="right"
+                required
               />
             </GridItem>
             <GridItem col="1">
-              <Button onClick={this.handleSubmit} fill="true">
-                Calculate
+              <Button submit fill="true">
+                {calculatedData.size > 0 ? (
+                  <Fragment>Recalculate</Fragment>
+                ) : (
+                  <Fragment>Calculate</Fragment>
+                )}
               </Button>
             </GridItem>
             <GridItem col="2">
-              <Button onClick={this.handleSubmit} fill="true">
-                Clear Calculator
+              <Button onClick={this.clearCalculator} fill="true">
+                Clear
               </Button>
             </GridItem>
           </Grid>
@@ -117,7 +134,9 @@ class Calculator extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  calculatedData: state.getIn(['calculator', 'calculatedData'])
+});
 
 export const mapDispatchToProps = dispatch => ({
   onSetCalculatedData: data => dispatch(setCalculatedData(data)),

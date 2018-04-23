@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 import Select from '../../components/Select';
+import Grid from '../../components/Grid';
+import GridItem from '../../components/GridItem';
 
 import { getCurrencyRates } from './actions';
 import { setConvertedData } from '../Calculator/actions';
@@ -14,7 +16,6 @@ class Graph extends Component {
     const currencies = 'USD,GBP,ZAR';
 
     if (convertedData !== prevProps.convertedData) {
-      console.log('FIRING!');
       onGetCurrencyRates(currencies);
     }
   }
@@ -49,19 +50,27 @@ class Graph extends Component {
     return (
       <Fragment>
         {data.length > 0 && (
-          <Fragment>
-            <Select
-              firstOption="Convert Currency"
-              data={currencyRates}
-              onChange={e => this.convertDataToCurrency(e)}
-            />
-            <LineChart width={600} height={600} data={data}>
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Line type="monotone" dataKey="totalAmount" stroke="#8884d8" />
-            </LineChart>
-          </Fragment>
+          <Grid>
+            <GridItem col="1" row="1">
+              <Select
+                firstOption="Convert Currency"
+                data={currencyRates}
+                onChange={e => this.convertDataToCurrency(e)}
+              />
+            </GridItem>
+            <GridItem col="2" row="1">
+              Show conversion
+            </GridItem>
+
+            <GridItem col="1 / span 2" row="2">
+              <LineChart width={800} height={600} data={data}>
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Line type="monotone" dataKey="totalAmount" stroke="#8884d8" />
+              </LineChart>
+            </GridItem>
+          </Grid>
         )}
       </Fragment>
     );
