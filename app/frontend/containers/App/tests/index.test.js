@@ -13,15 +13,16 @@ describe('<App />', () => {
   const renderedComponent = shallow(<App />);
 
   it('should render the calculator container', () => {
-    expect(
-      renderedComponent.contains(<Calculator />)
-    ).toEqual(true);
+    expect(renderedComponent.contains(<Calculator />)).toEqual(true);
   });
 
   it('should render the graph container', () => {
-    expect(
-      renderedComponent.contains(<Graph data={} />)
-    ).toEqual(true);
+    const data = [
+      { month: 0, totalAmount: 100 },
+      { month: 1, totalAmount: 110 },
+      { month: 2, totalAmount: 120 }
+    ];
+
+    expect(renderedComponent.contains(<Graph data={data} />)).toEqual(true);
   });
 });
-

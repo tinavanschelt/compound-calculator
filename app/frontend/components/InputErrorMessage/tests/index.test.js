@@ -8,7 +8,7 @@ import { shallow } from 'enzyme';
 import InputErrorMessage from '../index';
 import Wrapper from '../Wrapper';
 
-const text = 'This is an error message!';
+const children = 'This is an error message!';
 const renderComponent = (props = {}) =>
   shallow(<InputErrorMessage {...props} />);
 
