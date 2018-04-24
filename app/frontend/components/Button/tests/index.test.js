@@ -8,7 +8,6 @@ import { shallow, mount } from 'enzyme';
 import Button from '../index';
 import { ButtonSolid, ButtonOutline, ButtonTransparent } from '../StyledButton';
 
-const handleRoute = () => {};
 const href = 'http://calculator.com/';
 const children = <div>This is fake child content</div>;
 const renderComponent = (props = {}) =>

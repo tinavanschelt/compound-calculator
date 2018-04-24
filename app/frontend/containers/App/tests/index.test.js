@@ -2,6 +2,10 @@
  * Tests for App Container
  */
 
+/**
+ * Tests for App Container
+ */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 
@@ -9,7 +13,7 @@ import { App } from '../index';
 import Calculator from '../../Calculator';
 import Graph from '../../Graph';
 
-describe('<HomePage />', () => {
+describe('<App />', () => {
   const renderedComponent = shallow(<App />);
 
   it('should render the calculator container', () => {
@@ -24,3 +28,4 @@ describe('<HomePage />', () => {
     ).toEqual(true);
   });
 });
+
