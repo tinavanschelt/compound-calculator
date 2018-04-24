@@ -3,7 +3,7 @@
     "jsx": true,
     "modules": true
   },
-  "env": { "browser": true },
+  "env": { "browser": true, "jest": true },
   "extends": ["airbnb-base", "prettier"],
   "parserOptions": {
     "ecmaVersion": 6

@@ -2,10 +2,6 @@
  * Tests for App Container
  */
 
-/**
- * Tests for App Container
- */
-
 import React from 'react';
 import { shallow } from 'enzyme';
 
