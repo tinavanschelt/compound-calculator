@@ -9,9 +9,6 @@ import { App } from '../index';
 import Calculator from '../../Calculator';
 import Graph from '../../Graph';
 
-import { changeUsername } from '../actions';
-import { loadRepos } from '../../App/actions';
-
 describe('<HomePage />', () => {
   const renderedComponent = shallow(<App />);
 

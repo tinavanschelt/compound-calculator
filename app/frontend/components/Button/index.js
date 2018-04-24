@@ -63,7 +63,6 @@ Button.propTypes = {
   fill: PropTypes.string,
   // can't use boolean at this stage, throws error in console
   // see github issue: https://github.com/styled-components/styled-components/issues/1198
-  // handleRoute: PropTypes.func,
   href: PropTypes.string,
   margin: PropTypes.string,
   onClick: PropTypes.func,
