@@ -8,7 +8,7 @@ import { shallow } from 'enzyme';
 import StyledInput from '.. StyledInput';
 
 describe('<StyledInput />', () => {
-  it('should render a <form> tag', () => {
+  it('should render a <input> tag', () => {
     const renderedComponent = shallow(<StyledInput />);
     expect(renderedComponent.type()).toEqual('input');
   });

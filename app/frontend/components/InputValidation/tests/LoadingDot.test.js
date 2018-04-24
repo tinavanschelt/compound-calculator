@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import LoadingDot from '../LoadingDot';
 
 describe('<LoadingDot />', () => {
-  it('should render a <form> tag', () => {
+  it('should render a <div> tag', () => {
     const renderedComponent = shallow(<LoadingDot />);
     expect(renderedComponent.type()).toEqual('div');
   });

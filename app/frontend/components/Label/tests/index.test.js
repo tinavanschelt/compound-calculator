@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Label from '../index';
 
 describe('<Label />', () => {
-  it('should render a <form> tag', () => {
+  it('should render a <label> tag', () => {
     const renderedComponent = shallow(<Label />);
     expect(renderedComponent.type()).toEqual('label');
   });

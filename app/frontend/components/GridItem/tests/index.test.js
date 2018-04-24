@@ -8,7 +8,7 @@ import { shallow } from 'enzyme';
 import GridItem from '../index';
 
 describe('<GridItem />', () => {
-  it('should render a <form> tag', () => {
+  it('should render a <div> tag', () => {
     const renderedComponent = shallow(<GridItem />);
     expect(renderedComponent.type()).toEqual('div');
   });

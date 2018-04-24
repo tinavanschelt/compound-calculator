@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Icon from '../Icon';
 
 describe('<Icon />', () => {
-  it('should render a <form> tag', () => {
+  it('should render a <i> tag', () => {
     const renderedComponent = shallow(<Icon />);
     expect(renderedComponent.type()).toEqual('i');
   });
