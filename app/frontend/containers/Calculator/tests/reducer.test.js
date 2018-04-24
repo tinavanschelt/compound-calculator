@@ -1,3 +1,7 @@
+/**
+ * Tests for Calculator Reducer
+ */
+
 import { fromJS } from 'immutable';
 
 import calculatorReducer from '../reducer';

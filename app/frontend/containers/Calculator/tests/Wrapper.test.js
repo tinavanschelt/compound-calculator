@@ -1,3 +1,7 @@
+/**
+ * Tests for Wrapper styled-component
+ */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 

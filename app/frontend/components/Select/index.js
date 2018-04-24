@@ -77,13 +77,14 @@ class Select extends Component {
             {options &&
               options.map(option => {
                 // First check for selected value
-                // if (option[1] === this.props.selected) {
-                //   return (
-                //     <option key={option[0]} value={option[1]}>
-                //       {option[0]}
-                //     </option>
-                //   );
-                // }
+                if (option[1] === this.props.selected) {
+                  return (
+                    <option key={option[0]} value={option[1]}>
+                      {option[0]}
+                    </option>
+                  );
+                }
+
                 return (
                   <option key={option[0]} value={option[1]}>
                     {option[0]}

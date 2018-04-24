@@ -1,3 +1,7 @@
+/**
+ * Tests for Graph Reducer
+ */
+
 import { fromJS } from 'immutable';
 
 import graphReducer from '../reducer';
