@@ -17,17 +17,11 @@ export default {
     light: '#E3E3E3',
     tint: '#F3F3F3'
   },
-  colorPrimary: {
-    default: '#004997',
-    dark: '#002f61',
-    light: '#91ADCD',
-    tint: '#002f61'
-  },
-  colorSecondary: {
-    default: '#91B57F',
-    dark: '#799b68',
-    light: '#abd198',
-    tint: '#799b68'
+  colorGreen: {
+    default: '#26c283',
+    dark: '#20a36f',
+    light: '#40e6a3',
+    tint: '#68fcc0'
   },
   colorWhite: '#FFFFFF',
   fontSans: "'Open Sans', sans-serif",
