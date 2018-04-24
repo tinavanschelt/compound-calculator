@@ -10,14 +10,14 @@ import {
 } from '../actions';
 
 describe('Calculator Actions', () => {
+  const data = [
+    { month: 0, totalAmount: 100 },
+    { month: 1, totalAmount: 110 },
+    { month: 2, totalAmount: 120 }
+  ];
+
   describe('setCalculatedData', () => {
     it('should return the correct type and the data', () => {
-      const data = [
-        { month: 0, totalAmount: 100 },
-        { month: 1, totalAmount: 110 },
-        { month: 2, totalAmount: 120 }
-      ];
-
       const expectedResult = {
         type: SET_CALCULATED_DATA,
         data
@@ -29,7 +29,6 @@ describe('Calculator Actions', () => {
 
   describe('setConvertedData', () => {
     it('should return the correct type and the data', () => {
-      const fixture = 'Max';
       const expectedResult = {
         type: SET_CONVERTED_DATA,
         data
