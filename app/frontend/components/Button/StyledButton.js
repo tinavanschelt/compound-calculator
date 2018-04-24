@@ -14,22 +14,22 @@ export const ButtonOutline = ButtonSolid.extend`
   background-color: transparent;
   border: ${props =>
     props.color
-      ? `2px solid ${props.theme.color[props.color].default}`
+      ? `2px solid ${props.theme[`color${props.color}`].default}`
       : `2px solid ${props.theme.colorGray.default}`};
   color: ${props =>
     props.color
-      ? props.theme.color[props.color].default
+      ? `props.theme.color${props.color}.default`
       : props.theme.colorGray.default};
   &:hover {
     background-color: transparent;
     border: ${props =>
       props.color
-        ? `2px solid ${props.theme.color[props.color].hover}`
-        : `2px solid ${props.theme.colorGray.hover}`};
+        ? `${props.theme[`color${props.color}`].tint}`
+        : `2px solid ${props.theme.colorGray.tint}`};
     color: ${props =>
       props.color
-        ? props.theme.color[props.color].hover
-        : props.theme.colorGray.hover};
+        ? `props.theme.color${props.color}.tint`
+        : props.theme.colorGray.tint};
   }
 `;
 
@@ -38,7 +38,7 @@ export const ButtonTransparent = ButtonSolid.extend`
   border: 2px solid transparent;
   color: ${props =>
     props.color
-      ? props.theme.color[props.color].default
+      ? `${props.theme[`color${props.color}`].default}`
       : props.theme.colorGray.default};
 
   &:hover {
@@ -46,7 +46,7 @@ export const ButtonTransparent = ButtonSolid.extend`
     border: 2px solid transparent;
     color: ${props =>
       props.color
-        ? props.theme.color[props.color].hover
+        ? `${props.theme[`color${props.color}`].tint}`
         : props.theme.colorGray.hover};
   }
 `;

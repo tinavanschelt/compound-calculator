@@ -123,7 +123,7 @@ class Calculator extends Component {
               </Button>
             </GridItem>
             <GridItem col="2">
-              <Button onClick={this.clearCalculator} fill="true">
+              <Button color="Green" onClick={this.clearCalculator} fill="true">
                 Clear
               </Button>
             </GridItem>
