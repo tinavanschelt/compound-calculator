@@ -1,5 +1,5 @@
 /**
- * Grid (Components)
+ * Grid
  */
 
 import styled from 'styled-components';

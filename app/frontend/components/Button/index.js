@@ -1,5 +1,5 @@
 /**
- * Button (Component)
+ * Button
  */
 
 import React, { Children } from 'react';

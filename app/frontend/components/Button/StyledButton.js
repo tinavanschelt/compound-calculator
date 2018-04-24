@@ -1,5 +1,5 @@
 /**
- * Button / StyledButton (Styled Component)
+ * StyledButton (styled-component)
  */
 
 import styled from 'styled-components';
