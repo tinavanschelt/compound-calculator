@@ -39,7 +39,7 @@ class Graph extends Component {
     const { onSetConvertedData, calculatedData } = this.props;
 
     if (value !== 'default') {
-      if (value === -1) {
+      if (value === '-1') {
         onSetConvertedData(calculatedData);
       } else {
         const convertedData = [];
@@ -87,7 +87,7 @@ class Graph extends Component {
                 <XAxis dataKey="month" />
                 <YAxis />
                 <Tooltip />
-                <Line type="monotone" dataKey="totalAmount" stroke="#8884d8" />
+                <Line type="monotone" dataKey="totalAmount" stroke="#20a36f" />
               </LineChart>
             </GridItem>
           </Grid>
@@ -110,10 +110,8 @@ export const mapDispatchToProps = dispatch => ({
 
 Graph.propTypes = {
   data: PropTypes.object,
-  calculatorRates: PropTypes.object,
-  calculatedData: PropTypes.object,
-  convertedData: PropTypes.object,
-  convertedRates: PropTypes.object,
+  calculatedData: PropTypes.array,
+  convertedData: PropTypes.array,
   currencyRates: PropTypes.object,
   onGetCurrencyRates: PropTypes.func.isRequired,
   onSetConvertedData: PropTypes.func.isRequired

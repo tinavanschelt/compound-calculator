@@ -123,7 +123,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Calculator.propTypes = {
-  calculatedData: PropTypes.object,
+  calculatedData: PropTypes.array,
   onSetCalculatedData: PropTypes.func.isRequired,
   onSetConvertedData: PropTypes.func.isRequired
 };

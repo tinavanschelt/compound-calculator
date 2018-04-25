@@ -9,4 +9,5 @@ const selectGraph = state => state.get('graph');
 const makeSelectCurrencies = () =>
   createSelector(selectGraph, state => state.get('currencies'));
 
-export default { makeSelectCurrencies };
+/* eslint-disable import/prefer-default-export */
+export { makeSelectCurrencies };

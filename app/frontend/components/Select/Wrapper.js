@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     content: '\\f107';
     color: ${props => props.theme.colorCharcoal};
     font-family: 'Font Awesome 5 Free';
-    font-size: ${props => props.theme.fontSizePlus};
+    font-size: ${props => props.theme.fontSizeLarge};
     font-weight: 900;
     line-height: 20px;
     position: absolute;

@@ -37,11 +37,11 @@ export const Button = css`
   &:hover {
     background-color: ${props =>
       props.color
-        ? `${props.theme[`color${props.color}`].tint}`
+        ? `${props.theme[`color${props.color}`].light}`
         : props.theme.colorGray.tint};
     border: ${props =>
       props.color
-        ? `2px solid ${props.theme[`color${props.color}`].tint}`
+        ? `2px solid ${props.theme[`color${props.color}`].light}`
         : `2px solid ${props.theme.colorGray.tint}`};
     color: ${props => props.theme.colorWhite};
   }
