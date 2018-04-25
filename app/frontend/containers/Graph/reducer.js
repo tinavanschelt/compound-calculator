@@ -10,7 +10,7 @@ import {
 } from './actions';
 
 const initialState = fromJS({
-  currency: 'EU',
+  currency: 'EURO',
   currencies: '',
   currencyRates: {}
 });

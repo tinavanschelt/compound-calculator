@@ -21,7 +21,7 @@ export function* fetchCurrencyRates() {
     // add Euros to the provided rates as -1 and set rates in the redux store
     // (using a negative value to ensure that it is unique)
     if (rates) {
-      rates.EU = -1;
+      rates.EURO = -1;
       yield put(setCurrencyRates(rates));
     }
   } catch (error) {
