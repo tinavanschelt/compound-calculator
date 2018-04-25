@@ -80,6 +80,5 @@ test:
 #
 production:
   <<: *default
-  database: compound_db_production
-  username: compound_db
-  password: <%= ENV['compound_db_DATABASE_PASSWORD'] %>
+  database: postgresql-corrugated-37353
+  password: 
