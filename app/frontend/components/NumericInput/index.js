@@ -94,11 +94,8 @@ class NumericInput extends Component {
           >
             <Symbol className="symbol ">{this.props.symbol}</Symbol>
             <Input
-              border={this.props.border}
               defaultValue={this.props.defaultValue}
-              error={this.state.error}
               type="text"
-              inputType="numeric"
               id={this.props.id}
               name={this.props.name}
               onChange={this.props.onChange}
@@ -121,14 +118,11 @@ class NumericInput extends Component {
 
 NumericInput.propTypes = {
   alignSymbol: PropTypes.string.isRequired,
-  border: PropTypes.string,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
-  inputType: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
-  labelColor: PropTypes.string,
-  maxChars: PropTypes.string,
+  maxChars: PropTypes.number,
   name: PropTypes.string,
   pattern: PropTypes.string,
   placeholder: PropTypes.string,
@@ -137,8 +131,15 @@ NumericInput.propTypes = {
 };
 
 NumericInput.defaultProps = {
+  defaultValue: '',
+  id: '',
   label: '',
-  maxChars: '0'
+  maxChars: 0,
+  name: '',
+  patter: '',
+  placeholder: '',
+  symbol: '',
+  required: false
 };
 
 export default NumericInput;

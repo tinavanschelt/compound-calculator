@@ -36,4 +36,10 @@ InputValidation.propTypes = {
   showValid: PropTypes.bool
 };
 
+InputValidation.defaultProps = {
+  loading: false,
+  valid: false,
+  showValid: false
+};
+
 export default InputValidation;

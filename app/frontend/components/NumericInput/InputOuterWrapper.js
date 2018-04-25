@@ -1,5 +1,5 @@
 /**
- * Wrapper
+ * InputOuterWrapper
  */
 
 import styled from 'styled-components';
