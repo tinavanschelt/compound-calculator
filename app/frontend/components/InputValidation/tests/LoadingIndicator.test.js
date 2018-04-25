@@ -10,4 +10,8 @@ describe('<LoadingIndicator />', () => {
   it('should render 3 LoadingDots', () => {
     expect(renderedComponent.find(LoadingDot).length).toBe(3);
   });
+
+  it('LoadingDots should have icons', () => {
+    expect(renderedComponent.find('i').length).toBe(3);
+  });
 });

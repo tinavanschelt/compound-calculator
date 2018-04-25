@@ -92,7 +92,7 @@ class NumericInput extends Component {
           <InputInnerWrapper
             className={`symbol-align-${this.props.alignSymbol} ${symbolWidth}`}
           >
-            <Symbol className="symbol ">{this.props.symbol}</Symbol>
+            <Symbol className="symbol">{this.props.symbol}</Symbol>
             <Input
               defaultValue={this.props.defaultValue}
               type="text"
@@ -117,7 +117,7 @@ class NumericInput extends Component {
 }
 
 NumericInput.propTypes = {
-  alignSymbol: PropTypes.string.isRequired,
+  alignSymbol: PropTypes.string,
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
   id: PropTypes.string,
@@ -131,6 +131,7 @@ NumericInput.propTypes = {
 };
 
 NumericInput.defaultProps = {
+  aligntSymbol: 'left',
   defaultValue: '',
   id: '',
   label: '',
