@@ -1,5 +1,9 @@
 class CalculatorController < ApplicationController
     skip_before_action :verify_authenticity_token, raise: false
+
+    def index
+
+    end
     
     def create
       base_amount = params[:base].to_f
