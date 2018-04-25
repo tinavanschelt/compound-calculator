@@ -10,11 +10,11 @@ const Wrapper = styled.div`
   width: 100%;
 
   &::after {
-    content: '\\f078';
+    content: '\\f107';
     color: ${props => props.theme.colorCharcoal};
-    font-family: 'FontAwesome';
-    font-size: ${props => props.theme.fontSizeReg};
-    font-weight: 500;
+    font-family: 'Font Awesome 5 Free';
+    font-size: ${props => props.theme.fontSizePlus};
+    font-weight: 900;
     line-height: 20px;
     position: absolute;
     right: 15px;
