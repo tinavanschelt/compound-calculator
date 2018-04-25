@@ -1,13 +1,12 @@
 /**
- * Wrapper (styled-component)
+ * Wrapper
  */
 
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  position: absolute;
-  right: 15px;
-  top: 52px;
+  text-align: center;
+  width: 15%;
 `;
 
 export default Wrapper;

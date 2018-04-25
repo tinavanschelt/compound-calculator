@@ -18,11 +18,12 @@ export default {
     tint: '#F3F3F3'
   },
   colorGreen: {
-    default: '#26c283',
+    default: '#40e6a3',
     dark: '#20a36f',
     light: '#40e6a3',
     tint: '#68fcc0'
   },
+  colorSalmon: '#f06767',
   colorWhite: '#FFFFFF',
   fontSans: "'Open Sans', sans-serif",
   fontSerif: "'Cormorant Garamond', serif",

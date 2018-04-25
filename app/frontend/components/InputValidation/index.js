@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import LoadingIndicator from './LoadingIndicator';
 import { IconGreen, IconRed } from './Icon';
-import Wrapper from './Wrapper';
+import ValidationWrapper from './Wrapper';
 
 class InputValidation extends Component {
   render() {
@@ -17,24 +17,16 @@ class InputValidation extends Component {
     if (showValid) {
       if (!loading) {
         if (valid) {
-          validation = (
-            <Wrapper>
-              <IconGreen className="fas fa-check-circle" />
-            </Wrapper>
-          );
+          validation = <IconGreen className="fas fa-check-circle" />;
         } else {
-          validation = (
-            <Wrapper>
-              <IconRed className="fas fa-exclamation-circle" />
-            </Wrapper>
-          );
+          validation = <IconRed className="fas fa-exclamation-circle" />;
         }
       } else {
         validation = <LoadingIndicator />;
       }
     }
 
-    return <div>{validation}</div>;
+    return <ValidationWrapper>{validation}</ValidationWrapper>;
   }
 }
 

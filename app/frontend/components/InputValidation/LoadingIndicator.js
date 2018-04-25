@@ -2,14 +2,13 @@
  * LoadingIndicator
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import LoadingDot from './LoadingDot';
-import Wrapper from './Wrapper';
 
 function LoadingIndicator() {
   return (
-    <Wrapper>
+    <Fragment>
       <LoadingDot className="one">
         <i className="fa fa-circle" />
       </LoadingDot>
@@ -19,7 +18,7 @@ function LoadingIndicator() {
       <LoadingDot className="three">
         <i className="fa fa-circle" />
       </LoadingDot>
-    </Wrapper>
+    </Fragment>
   );
 }
 

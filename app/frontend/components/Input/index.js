@@ -5,9 +5,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorMessage from '../InputErrorMessage';
-import InputValidation from '../InputValidation';
 import StyledInput from './StyledInput';
+import ErrorMessage from './ErrorMessage';
 
 class Input extends Component {
   render() {
@@ -26,12 +25,6 @@ class Input extends Component {
         />
 
         {this.props.error && <ErrorMessage text={this.props.error} />}
-
-        <InputValidation
-          showValid={this.props.showValid}
-          loading={this.props.loading}
-          valid={this.props.valid}
-        />
       </Fragment>
     );
   }

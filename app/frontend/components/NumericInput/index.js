@@ -8,9 +8,11 @@ import PropTypes from 'prop-types';
 import Label from '../Label';
 import LabelText from '../Label/LabelText';
 import Input from '../Input';
+import InputValidation from '../InputValidation';
 
 import Symbol from './Symbol';
-import InputWrapper from './InputWrapper';
+import InputInnerWrapper from './InputInnerWrapper';
+import InputOuterWrapper from './InputOuterWrapper';
 
 class NumericInput extends Component {
   constructor(props) {
@@ -86,27 +88,32 @@ class NumericInput extends Component {
       >
         <LabelText>{this.props.label}</LabelText>
 
-        <InputWrapper
-          className={`symbol-align-${this.props.alignSymbol} ${symbolWidth}`}
-        >
-          <Symbol className="symbol ">{this.props.symbol}</Symbol>
-          <Input
-            border={this.props.border}
-            defaultValue={this.props.defaultValue}
-            error={this.state.error}
-            type="text"
-            inputType="numeric"
-            id={this.props.id}
+        <InputOuterWrapper>
+          <InputInnerWrapper
+            className={`symbol-align-${this.props.alignSymbol} ${symbolWidth}`}
+          >
+            <Symbol className="symbol ">{this.props.symbol}</Symbol>
+            <Input
+              border={this.props.border}
+              defaultValue={this.props.defaultValue}
+              error={this.state.error}
+              type="text"
+              inputType="numeric"
+              id={this.props.id}
+              name={this.props.name}
+              onChange={this.props.onChange}
+              placeholder={this.props.placeholder}
+              pattern={this.props.pattern}
+              required={this.props.required}
+            />
+          </InputInnerWrapper>
+
+          <InputValidation
             loading={this.state.loading}
-            name={this.props.name}
-            onChange={this.props.onChange}
-            placeholder={this.props.placeholder}
-            pattern={this.props.pattern}
-            required={this.props.required}
             showValid={this.state.showValid}
             valid={this.state.valid}
           />
-        </InputWrapper>
+        </InputOuterWrapper>
       </Label>
     );
   }
