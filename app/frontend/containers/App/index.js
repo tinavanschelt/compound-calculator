@@ -29,7 +29,11 @@ const mapStateToProps = state => ({
 });
 
 App.propTypes = {
-  convertedData: PropTypes.array
+  convertedData: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
+
+App.defaultProps = {
+  convertedData: []
 };
 
 export default connect(mapStateToProps)(App);

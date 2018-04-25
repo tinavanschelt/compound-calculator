@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import request from 'superagent';
@@ -60,8 +60,6 @@ class Calculator extends Component {
   }
 
   render() {
-    const { calculatedData } = this.props;
-
     return (
       <Wrapper>
         <h1>Compound Interest Calculator</h1>
@@ -100,11 +98,7 @@ class Calculator extends Component {
           />
           <ButtonWrapper>
             <Button color="Green" submit fill="true">
-              {calculatedData.size > 0 ? (
-                <Fragment>Recalculate</Fragment>
-              ) : (
-                <Fragment>Calculate</Fragment>
-              )}
+              Calculate
             </Button>
           </ButtonWrapper>
         </Form>
@@ -113,9 +107,7 @@ class Calculator extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  calculatedData: state.getIn(['calculator', 'calculatedData'])
-});
+const mapStateToProps = () => ({});
 
 export const mapDispatchToProps = dispatch => ({
   onSetCalculatedData: data => dispatch(setCalculatedData(data)),
@@ -123,7 +115,6 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Calculator.propTypes = {
-  calculatedData: PropTypes.array,
   onSetCalculatedData: PropTypes.func.isRequired,
   onSetConvertedData: PropTypes.func.isRequired
 };

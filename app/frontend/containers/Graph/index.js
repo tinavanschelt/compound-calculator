@@ -37,7 +37,6 @@ class Graph extends Component {
   }
 
   ensureVisible() {
-    console.log('called!');
     const { data } = this.props;
 
     if (data.length > 0) {
@@ -137,12 +136,19 @@ export const mapDispatchToProps = dispatch => ({
 Graph.propTypes = {
   currency: PropTypes.string.isRequired,
   data: PropTypes.object,
-  calculatedData: PropTypes.array,
-  convertedData: PropTypes.array,
+  calculatedData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  convertedData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   currencyRates: PropTypes.object,
   onSetCurrency: PropTypes.func.isRequired,
   onGetCurrencyRates: PropTypes.func.isRequired,
   onSetConvertedData: PropTypes.func.isRequired
+};
+
+Graph.defaultProps = {
+  data: {},
+  calculatedData: [],
+  convertedData: [],
+  currencyRates: {}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Graph);
