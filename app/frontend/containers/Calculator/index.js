@@ -43,7 +43,7 @@ class Calculator extends Component {
 
     /* eslint-disable array-callback-return */
     monthlyData.map((amount, index) => {
-      processedData.push({ month: index, totalAmount: amount });
+      processedData.push({ month: index, total: amount });
     }, {});
 
     onSetCalculatedData(processedData);

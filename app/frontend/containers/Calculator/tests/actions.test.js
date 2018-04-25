@@ -11,9 +11,9 @@ import {
 
 describe('Calculator Actions', () => {
   const data = [
-    { month: 0, totalAmount: 100 },
-    { month: 1, totalAmount: 110 },
-    { month: 2, totalAmount: 120 }
+    { month: 0, total: 100 },
+    { month: 1, total: 110 },
+    { month: 2, total: 120 }
   ];
 
   describe('setCalculatedData', () => {
