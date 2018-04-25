@@ -3,14 +3,14 @@
  */
 
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import InputErrorMessage from '../index';
 import Wrapper from '../Wrapper';
 
 const children = 'This is an error message!';
 const renderComponent = (props = {}) =>
-  shallow(<InputErrorMessage {...props} />);
+  mount(<InputErrorMessage {...props}>{children}</InputErrorMessage>);
 
 describe('<InputErrorMessage />', () => {
   it('should render wrapper around text', () => {

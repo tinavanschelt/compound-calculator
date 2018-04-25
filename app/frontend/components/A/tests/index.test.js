@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import theme from '../../../theme';
 
 import A from '../index';
 
@@ -11,7 +12,7 @@ const href = 'http://calculator.com/';
 const children = <div>This is fake child content</div>;
 const renderComponent = (props = {}) =>
   shallow(
-    <A href={href} {...props}>
+    <A theme={theme} href={href} {...props}>
       {children}
     </A>
   );

@@ -1,27 +1,35 @@
+/**
+ * Tests for LabelText
+ */
+
 import React from 'react';
 import { shallow } from 'enzyme';
+import theme from '../../../theme';
 
-import LabelText from '../index';
+import LabelText from '../LabelText';
 
 describe('<LabelText />', () => {
-  it('should render a <div> tag', () => {
-    const renderedComponent = shallow(<LabelText />);
+  const renderComponent = (props = {}) =>
+    shallow(<LabelText theme={theme} {...props} />);
+
+  it('should render a <LabelText> tag', () => {
+    const renderedComponent = renderComponent();
     expect(renderedComponent.type()).toEqual('div');
   });
 
   it('should have a className attribute', () => {
-    const renderedComponent = shallow(<LabelText />);
+    const renderedComponent = renderComponent();
     expect(renderedComponent.prop('className')).toBeDefined();
   });
 
   it('should adopt a valid attribute', () => {
     const id = 'test';
-    const renderedComponent = shallow(<LabelText id={id} />);
+    const renderedComponent = renderComponent({ id });
     expect(renderedComponent.prop('id')).toEqual(id);
   });
 
   it('should not adopt an invalid attribute', () => {
-    const renderedComponent = shallow(<LabelText attribute={'test'} />);
+    const renderedComponent = renderComponent({ attribute: 'test' });
     expect(renderedComponent.prop('attribute')).toBeUndefined();
   });
 });

@@ -3,26 +3,23 @@
  */
 
 import React from 'react';
+import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
 
-import { App } from '../index';
-import Calculator from '../../Calculator';
-import Graph from '../../Graph';
+import App from '../index';
+
+import configureStore from '../../../store';
 
 describe('<App />', () => {
-  const renderedComponent = shallow(<App />);
+  const store = configureStore({});
 
-  it('should render the calculator container', () => {
-    expect(renderedComponent.contains(<Calculator />)).toEqual(true);
-  });
+  const renderedComponent = shallow(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
 
-  it('should render the graph container', () => {
-    const data = [
-      { month: 0, totalAmount: 100 },
-      { month: 1, totalAmount: 110 },
-      { month: 2, totalAmount: 120 }
-    ];
-
-    expect(renderedComponent.contains(<Graph data={data} />)).toEqual(true);
+  it('should render a div', () => {
+    expect(renderedComponent.find('div').length).toEqual(1);
   });
 });

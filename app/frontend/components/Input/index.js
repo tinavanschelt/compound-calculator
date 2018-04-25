@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 import ErrorMessage from '../InputErrorMessage';
 import InputValidation from '../InputValidation';
-import Label from '../Label';
 import StyledInput from './StyledInput';
 
 class Input extends Component {

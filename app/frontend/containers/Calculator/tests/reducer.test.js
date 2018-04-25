@@ -9,18 +9,18 @@ import { setCalculatedData, setConvertedData } from '../actions';
 
 describe('calculatorReducer', () => {
   let state;
+  beforeEach(() => {
+    state = fromJS({
+      calculatedData: [],
+      convertedData: []
+    });
+  });
+
   const data = [
     { month: 0, totalAmount: 100 },
     { month: 1, totalAmount: 110 },
     { month: 2, totalAmount: 120 }
   ];
-
-  beforeEach(() => {
-    state = fromJS({
-      calculatedData: '',
-      convertedData: {}
-    });
-  });
 
   it('should return the initial state', () => {
     const expectedResult = state;
