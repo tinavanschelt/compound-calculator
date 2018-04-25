@@ -2,30 +2,25 @@
  * Input
  */
 
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledInput from './StyledInput';
-import ErrorMessage from './ErrorMessage';
 
 class Input extends Component {
   render() {
     return (
-      <Fragment>
-        <StyledInput
-          border={this.props.border}
-          className={this.props.error !== '' && 'error'}
-          defaultValue={this.props.defaultValue}
-          type={this.props.type}
-          id={this.props.id}
-          name={this.props.name}
-          onChange={this.props.onChange}
-          placeholder={this.props.placeholder}
-          required={this.props.required}
-        />
-
-        {this.props.error && <ErrorMessage text={this.props.error} />}
-      </Fragment>
+      <StyledInput
+        border={this.props.border}
+        className={this.props.error !== '' && 'error'}
+        defaultValue={this.props.defaultValue}
+        type={this.props.type}
+        id={this.props.id}
+        name={this.props.name}
+        onChange={this.props.onChange}
+        placeholder={this.props.placeholder}
+        required={this.props.required}
+      />
     );
   }
 }
