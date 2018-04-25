@@ -11,6 +11,7 @@ describe('graphReducer', () => {
   let state;
   beforeEach(() => {
     state = fromJS({
+      currency: 'EURO',
       currencies: '',
       currencyRates: {}
     });

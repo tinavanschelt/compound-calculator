@@ -135,7 +135,7 @@ export const mapDispatchToProps = dispatch => ({
 
 Graph.propTypes = {
   currency: PropTypes.string.isRequired,
-  data: PropTypes.object,
+  data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   calculatedData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   convertedData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   currencyRates: PropTypes.object,
