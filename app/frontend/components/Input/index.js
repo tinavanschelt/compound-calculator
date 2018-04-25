@@ -40,16 +40,21 @@ class Input extends Component {
 Input.propTypes = {
   border: PropTypes.string,
   defaultValue: PropTypes.string,
+  error: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   inputType: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   labelColor: PropTypes.string,
+  loading: PropTypes.bool,
   maxChars: PropTypes.string,
   name: PropTypes.string,
+  showValid: PropTypes.bool,
+  type: PropTypes.string.isRequired,
   pattern: PropTypes.string,
   placeholder: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  valid: PropTypes.bool
 };
 
 Input.defaultProps = {

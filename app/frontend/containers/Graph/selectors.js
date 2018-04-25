@@ -9,4 +9,4 @@ const selectGraph = state => state.get('graph');
 const makeSelectCurrencies = () =>
   createSelector(selectGraph, state => state.get('currencies'));
 
-export { makeSelectCurrencies };
+export default { makeSelectCurrencies };

@@ -45,8 +45,8 @@ class NumericInput extends Component {
     }
   }
 
-  handleBlur(e, type) {
-    const value = e.target.value;
+  handleBlur(e) {
+    const { value } = e.target;
     this.setState({ loading: false });
 
     const pattern = e.target.getAttribute('pattern');
@@ -65,6 +65,7 @@ class NumericInput extends Component {
     }
   }
 
+  /* eslint-disable class-methods-use-this */
   validateInputPattern(value, pattern) {
     return pattern.test(value);
   }
@@ -112,6 +113,7 @@ class NumericInput extends Component {
 }
 
 NumericInput.propTypes = {
+  alignSymbol: PropTypes.string.isRequired,
   border: PropTypes.string,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func,

@@ -6,18 +6,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import LoadingIndicator from './LoadingIndicator';
-import { Icon, IconGreen, IconRed } from './Icon';
+import { IconGreen, IconRed } from './Icon';
 import Wrapper from './Wrapper';
 
 class InputValidation extends Component {
   render() {
     let validation;
+    const { loading, showValid, valid } = this.props;
 
-    if (this.props.showValid) {
-      if (this.props.loading) {
-        validation = <LoadingIndicator />;
-      } else {
-        if (this.props.valid) {
+    if (showValid) {
+      if (!loading) {
+        if (valid) {
           validation = (
             <Wrapper>
               <IconGreen className="fas fa-check-circle" />
@@ -30,6 +29,8 @@ class InputValidation extends Component {
             </Wrapper>
           );
         }
+      } else {
+        validation = <LoadingIndicator />;
       }
     }
 

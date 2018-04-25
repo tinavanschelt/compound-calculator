@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
@@ -10,7 +10,19 @@ import GridItem from '../../components/GridItem';
 import { getCurrencyRates } from './actions';
 import { setConvertedData } from '../Calculator/actions';
 
+let graphWidth;
+let graphHeight;
+
 class Graph extends Component {
+  componentDidMount() {
+    graphWidth = this.containerRef.clientWidth - 100;
+    graphHeight = this.containerRef.clientHeight - 100;
+
+    if (graphHeight < 200) {
+      graphHeight = 200;
+    }
+  }
+
   componentWillReceiveProps(prevProps) {
     const { convertedData, onGetCurrencyRates } = this.props;
     const currencies = 'USD,GBP,ZAR';
@@ -27,11 +39,12 @@ class Graph extends Component {
     const { onSetConvertedData, calculatedData } = this.props;
 
     if (value !== 'default') {
-      if (value == -1) {
+      if (value === -1) {
         onSetConvertedData(calculatedData);
       } else {
         const convertedData = [];
 
+        /* eslint-disable array-callback-return */
         calculatedData.map(data => {
           const convertedAmount = data.totalAmount * value;
           convertedData.push({
@@ -46,9 +59,16 @@ class Graph extends Component {
   }
 
   render() {
-    const { data, currencyRates, calculatedData } = this.props;
+    const { data, currencyRates } = this.props;
     return (
-      <Fragment>
+      <div
+        ref={element => {
+          this.containerRef = element;
+        }}
+        style={{ width: '100%', height: '100%', padding: '1em' }}
+      >
+        {/* Used div instead of Fragment in order to be able to use ref 
+            (ref slightly more complicated on a styled-component) */}
         {data.length > 0 && (
           <Grid>
             <GridItem col="1" row="1">
@@ -63,7 +83,7 @@ class Graph extends Component {
             </GridItem>
 
             <GridItem col="1 / span 2" row="2">
-              <LineChart width={800} height={600} data={data}>
+              <LineChart width={graphWidth} height={graphHeight} data={data}>
                 <XAxis dataKey="month" />
                 <YAxis />
                 <Tooltip />
@@ -72,7 +92,7 @@ class Graph extends Component {
             </GridItem>
           </Grid>
         )}
-      </Fragment>
+      </div>
     );
   }
 }
@@ -89,9 +109,14 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Graph.propTypes = {
+  data: PropTypes.object,
   calculatorRates: PropTypes.object,
+  calculatedData: PropTypes.object,
+  convertedData: PropTypes.object,
   convertedRates: PropTypes.object,
-  currencyRates: PropTypes.object
+  currencyRates: PropTypes.object,
+  onGetCurrencyRates: PropTypes.func.isRequired,
+  onSetConvertedData: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Graph);

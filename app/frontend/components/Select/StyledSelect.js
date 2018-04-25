@@ -12,7 +12,7 @@ const StyledSelect = styled.select`
   color: ${props => props.theme.colorCharcoal};
   cursor: pointer;
   border: 1px solid ${props => props.theme.colorGray.default};
-  border-radius: 0;
+  border-radius: ${props => props.theme.borderRadius};
   font-size: ${props => props.theme.fontSizeReg};
   margin: 0.5em 0;
   min-height: 50px;

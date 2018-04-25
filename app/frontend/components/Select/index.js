@@ -25,6 +25,7 @@ class Select extends Component {
   render() {
     const { data } = this.props;
     let { firstOption } = this.props;
+    const { optionKey, optionValue } = this.props;
     let options;
 
     if (data) {
@@ -41,9 +42,10 @@ class Select extends Component {
         // Check if array or an object array
         if (typeof data[0] === 'object') {
           // set firstOption (if specified)
+          /* eslint-disable array-callback-return */
           data.map(option => {
-            const key = option[this.props.optionKey];
-            const val = option[this.props.optionValue];
+            const key = option[optionKey];
+            const val = option[optionValue];
 
             options.push([key, val]);
           });
@@ -102,12 +104,14 @@ Select.propTypes = {
   className: PropTypes.string,
   data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   default: PropTypes.string,
+  firstOption: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   style: PropTypes.object,
-  firstOption: PropTypes.string
+  optionKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  optionValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default Select;

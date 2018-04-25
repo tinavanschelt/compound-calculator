@@ -7,7 +7,7 @@ import { mount } from 'enzyme';
 
 import Input from '../index';
 import InputValidation from '../../InputValidation';
-import InputErrorMessage from '../../InputErrorMessage';
+// import InputErrorMessage from '../../InputErrorMessage';
 
 const renderComponent = (props = {}) => mount(<Input {...props} />);
 

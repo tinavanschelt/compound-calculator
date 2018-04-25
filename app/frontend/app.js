@@ -11,13 +11,14 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 
+import App from './containers/App';
+
 // Import CSS reset and global styles
 import './global-styles';
 
 import configureStore from './store';
-const store = configureStore();
 
-import App from './containers/App';
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

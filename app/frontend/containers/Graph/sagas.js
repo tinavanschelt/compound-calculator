@@ -25,6 +25,7 @@ export function* fetchCurrencyRates() {
       yield put(setCurrencyRates(rates));
     }
   } catch (error) {
+    /* eslint-disable no-console */
     console.log('Could not fetch currency rates', error);
   }
 }

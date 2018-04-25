@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import request from 'superagent';
 
 import Button from '../../components/Button';
 import Form from '../../components/Form';
-import Grid from '../../components/Grid';
-import GridItem from '../../components/GridItem';
 import NumericInput from '../../components/NumericInput';
 
 import Wrapper from './Wrapper';
@@ -36,18 +35,12 @@ class Calculator extends Component {
       });
   }
 
-  clearCalculator(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    this.state = {};
-  }
-
   processCalculatorResult(monthlyData) {
     const { onSetCalculatedData, onSetConvertedData } = this.props;
 
     const processedData = [];
 
+    /* eslint-disable array-callback-return */
     monthlyData.map((amount, index) => {
       processedData.push({ month: index, totalAmount: amount });
     }, {});
@@ -58,7 +51,7 @@ class Calculator extends Component {
 
   handleInputChange(e) {
     const { target } = e;
-    const { id, name, type, value } = target;
+    const { name, value } = target;
 
     this.setState({
       [name]: value
@@ -72,62 +65,45 @@ class Calculator extends Component {
       <Wrapper>
         <h1>Compound Interest Calculator</h1>
         <Form onSubmit={this.handleSubmit}>
-          <Grid columns="2">
-            <GridItem col="1 / span 2">
-              <NumericInput
-                label="Base Amount"
-                name="base"
-                onChange={this.handleInputChange}
-                symbol="€"
-                alignSymbol="left"
-                required
-              />
-            </GridItem>
-            <GridItem col="1 / span 2">
-              <NumericInput
-                label="Regular Monthly Deposit"
-                name="deposit"
-                onChange={this.handleInputChange}
-                symbol="€"
-                alignSymbol="left"
-                required
-              />
-            </GridItem>
-            <GridItem col="1 / span 2">
-              <NumericInput
-                label="Annual Interest Rate"
-                name="interest"
-                onChange={this.handleInputChange}
-                symbol="%"
-                alignSymbol="right"
-                required
-              />
-            </GridItem>
-            <GridItem col="1 / span 2">
-              <NumericInput
-                label="Calculation Period"
-                name="period"
-                onChange={this.handleInputChange}
-                symbol="years"
-                alignSymbol="right"
-                required
-              />
-            </GridItem>
-            <GridItem col="1">
-              <Button submit fill="true">
-                {calculatedData.size > 0 ? (
-                  <Fragment>Recalculate</Fragment>
-                ) : (
-                  <Fragment>Calculate</Fragment>
-                )}
-              </Button>
-            </GridItem>
-            <GridItem col="2">
-              <Button color="Green" onClick={this.clearCalculator} fill="true">
-                Clear
-              </Button>
-            </GridItem>
-          </Grid>
+          <NumericInput
+            label="Base Amount"
+            name="base"
+            onChange={this.handleInputChange}
+            symbol="€"
+            alignSymbol="left"
+            required
+          />
+          <NumericInput
+            label="Regular Monthly Deposit"
+            name="deposit"
+            onChange={this.handleInputChange}
+            symbol="€"
+            alignSymbol="left"
+            required
+          />
+          <NumericInput
+            label="Annual Interest Rate"
+            name="interest"
+            onChange={this.handleInputChange}
+            symbol="%"
+            alignSymbol="right"
+            required
+          />
+          <NumericInput
+            label="Calculation Period"
+            name="period"
+            onChange={this.handleInputChange}
+            symbol="years"
+            alignSymbol="right"
+            required
+          />
+          <Button color="Green" submit fill="true">
+            {calculatedData.size > 0 ? (
+              <Fragment>Recalculate</Fragment>
+            ) : (
+              <Fragment>Calculate</Fragment>
+            )}
+          </Button>
         </Form>
       </Wrapper>
     );
@@ -142,5 +118,11 @@ export const mapDispatchToProps = dispatch => ({
   onSetCalculatedData: data => dispatch(setCalculatedData(data)),
   onSetConvertedData: data => dispatch(setConvertedData(data))
 });
+
+Calculator.propTypes = {
+  calculatedData: PropTypes.object,
+  onSetCalculatedData: PropTypes.func.isRequired,
+  onSetConvertedData: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);
