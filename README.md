@@ -110,4 +110,4 @@ I decided to play it safe and stick with the example.
 #### Basic Formula
 
 0 = x MonthlyTotals[x] = BaseAmount  
-1 < x MonthlyTotals[x] = (MonthlyTotals[x-1] + MonthlyDeposit) x (1 + InterestRate / 12)
+1 < x MonthlyTotals[x] = (MonthlyTotals[x-1] + MonthlyDeposit) x ((1 + InterestRate) / 12)
