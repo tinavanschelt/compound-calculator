@@ -83,9 +83,9 @@ The calculator calculations can be found in `calculator_controller`.
 For clarity, values used for calculations are as follows
 
 * Base Amount
-* Regular _Monthly_ Deposit
-* _Annual_ Interest Rate (compounded _Monthly_)
-* Calculation Period (in _Years_)
+* Regular **Monthly** Deposit
+* **Annual** Interest Rate (compounded **Monthly**)
+* Calculation Period (in **Years**)
 
 There are various ways to go about things, and the two main factors to take into consideration are
 
