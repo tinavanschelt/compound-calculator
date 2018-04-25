@@ -23,12 +23,25 @@ class Graph extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.ensureVisible();
+  }
+
   componentWillReceiveProps(prevProps) {
     const { convertedData, onGetCurrencyRates } = this.props;
     const currencies = 'USD,GBP,ZAR';
 
     if (convertedData !== prevProps.convertedData) {
       onGetCurrencyRates(currencies);
+    }
+  }
+
+  ensureVisible() {
+    console.log('called!');
+    const { data } = this.props;
+
+    if (data.length > 0) {
+      this.containerRef.scrollIntoView();
     }
   }
 
@@ -76,7 +89,7 @@ class Graph extends Component {
           <Grid columns="3">
             <GridItem col="1 / span 3" row="1">
               <h1>
-                Showing total compounded amounts for each month in {currency}
+                Showing total compounded amount for each month in {currency}
               </h1>
             </GridItem>
             <GridItem col="1 / span 3" row="2">
