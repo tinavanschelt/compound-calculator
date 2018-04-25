@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Label, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 import Select from '../../components/Select';
 import Grid from '../../components/Grid';
@@ -98,8 +98,12 @@ class Graph extends Component {
                 data={data}
                 style={{ marginTop: '1em' }}
               >
-                <XAxis dataKey="month" />
-                <YAxis />
+                <XAxis dataKey="month">
+                  <Label value="Month" position="insideBottom" offset={40} />
+                </XAxis>
+                <YAxis>
+                  <Label value={currency} position="insideLeft" offset={70} />
+                </YAxis>
                 <Tooltip />
                 <Line type="monotone" dataKey="total" stroke="#009fff" />
               </LineChart>
