@@ -22,6 +22,7 @@ The calculator outputs the results as a graph, which can be converted to differe
 
 * [Jest](https://github.com/facebook/jest/)
 * [Enzyme](https://github.com/airbnb/enzyme)
+* [MiniTest](https://github.com/seattlerb/minitest)
 
 ### Linting
 
