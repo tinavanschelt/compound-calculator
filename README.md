@@ -13,6 +13,7 @@
 * Reselect
 * ImmutableJS
 * Styled Components
+* Recharts
 
 ### Testing
 
@@ -25,7 +26,8 @@
 
 ## Project Structure
 
-/frontend folder
+The application was created using `rails new --api` and follows the standard rails folder structure, with the addition of our React files. All the React-related code lives in the `/frontend` folder.
+
 The project uses [container/component architecture](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
 Container/component architecture in short:
@@ -59,3 +61,17 @@ $ yarn lint:watch
 ```
 
 The above uses eslint and eslint-watch.
+
+## Testing
+
+Javascript
+
+```
+$ yarn test
+```
+
+Rails
+
+```
+$ rake test
+```
