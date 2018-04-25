@@ -73,13 +73,13 @@ class Graph extends Component {
         {/* Used div instead of Fragment in order to be able to use ref 
             (ref slightly more complicated on a styled-component) */}
         {data.length > 0 && (
-          <Grid columns="4">
-            <GridItem col="1 / span 4" row="1">
+          <Grid columns="3">
+            <GridItem col="1 / span 3" row="1">
               <h1>
                 Showing total compounded amounts for each month in {currency}
               </h1>
             </GridItem>
-            <GridItem col="1 / span 4" row="2">
+            <GridItem col="1 / span 3" row="2">
               <LineChart
                 width={graphWidth}
                 height={graphHeight}
@@ -93,8 +93,8 @@ class Graph extends Component {
               </LineChart>
             </GridItem>
 
-            <GridItem col="1 / span 3" row="3" />
-            <GridItem col="4" row="3">
+            <GridItem col="1 / span 2" row="3" />
+            <GridItem col="3" row="3">
               <Select
                 firstOption="Convert Currency"
                 data={currencyRates}
