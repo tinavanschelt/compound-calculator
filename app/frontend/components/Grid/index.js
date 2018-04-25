@@ -19,6 +19,7 @@ const Container = styled.div`
   display: grid;
   grid-gap: ${props => (props.gap ? `${props.gap}%` : '2%')};
   ${props => props.columns && 'grid-template-columns: 1fr;'};
+  ${props => props.custom && 'grid-template-columns: 1fr;'};
   margin: ${props => (props.margin ? `${props.margin}` : '0')};
   width: 100%;
 
