@@ -3,39 +3,29 @@
  */
 
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
+import { ThemeProvider } from 'styled-components';
+import theme from '../../../theme';
 
 import Button from '../index';
-import { ButtonSolid, ButtonOutline, ButtonTransparent } from '../StyledButton';
 
 const href = 'http://calculator.com/';
-const children = <div>This is fake child content</div>;
+const text = 'This is fake child content';
 const renderComponent = (props = {}) =>
-  mount(<Button {...props}>{children}</Button>);
+  mount(
+    <ThemeProvider theme={theme}>
+      <Button {...props}>{text}</Button>
+    </ThemeProvider>
+  );
 
 describe('<Button />', () => {
-  it('should render solid button as default', () => {
-    const renderedComponent = renderComponent({});
-    expect(renderedComponent.contains(<ButtonSolid />)).toEqual(true);
-  });
-
-  it('should render outline button if specified', () => {
-    const renderedComponent = renderComponent({ outline: true });
-    expect(renderedComponent.contains(<ButtonOutline />)).toEqual(true);
-  });
-
-  it('should render transparent button if specified', () => {
-    const renderedComponent = renderComponent({ transparent: true });
-    expect(renderedComponent.contains(<ButtonTransparent />)).toEqual(true);
-  });
-
   it('should render type submit if submit is true', () => {
     const renderedComponent = renderComponent({ submit: true });
-    expect(renderedComponent.find('a').length).toEqual(1);
+    expect(renderedComponent.find('button').prop('type')).toBe('submit');
   });
 
   it('should render an <a> tag if href is specified', () => {
-    const renderedComponent = renderComponent({ href: href });
+    const renderedComponent = renderComponent({ href });
     expect(renderedComponent.find('a').length).toEqual(1);
   });
 
@@ -46,7 +36,7 @@ describe('<Button />', () => {
 
   it('should have children', () => {
     const renderedComponent = renderComponent();
-    expect(renderedComponent.contains(children)).toEqual(true);
+    expect(renderedComponent.contains(text)).toEqual(true);
   });
 
   it('should handle click events', () => {
@@ -58,7 +48,7 @@ describe('<Button />', () => {
 
   it('should have a className attribute', () => {
     const renderedComponent = renderComponent();
-    expect(renderedComponent.find('a').prop('className')).toBeDefined();
+    expect(renderedComponent.find('div').prop('className')).toBeDefined();
   });
 
   it('should not adopt a type attribute when rendering an <a> tag', () => {

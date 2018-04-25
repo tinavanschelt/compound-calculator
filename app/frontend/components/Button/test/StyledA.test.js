@@ -4,77 +4,85 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import theme from '../../../theme';
 
 import { StyledASolid, StyledAOutline, StyledATransparent } from '../StyledA';
 
 describe('<StyledA />', () => {
   describe('<StyledASolid />', () => {
+    const renderComponent = (props = {}) =>
+      shallow(<StyledASolid theme={theme} {...props} />);
+
     it('should render a <A> tag', () => {
-      const renderedComponent = shallow(<StyledASolid />);
-      expect(renderedComponent.type()).toEqual('div');
+      const renderedComponent = renderComponent();
+      expect(renderedComponent.type()).toEqual('a');
     });
 
     it('should have a className attribute', () => {
-      const renderedComponent = shallow(<StyledASolid />);
+      const renderedComponent = renderComponent();
       expect(renderedComponent.prop('className')).toBeDefined();
     });
 
     it('should adopt a valid attribute', () => {
       const id = 'test';
-      const renderedComponent = shallow(<StyledASolid id={id} />);
+      const renderedComponent = renderComponent({ id });
       expect(renderedComponent.prop('id')).toEqual(id);
     });
 
     it('should not adopt an invalid attribute', () => {
-      const renderedComponent = shallow(<StyledASolid attribute={'test'} />);
+      const renderedComponent = renderComponent({ attribute: 'test' });
       expect(renderedComponent.prop('attribute')).toBeUndefined();
     });
   });
 
   describe('<StyledAOutline />', () => {
+    const renderComponent = (props = {}) =>
+      shallow(<StyledAOutline theme={theme} {...props} />);
+
     it('should render a <A> tag', () => {
-      const renderedComponent = shallow(<StyledAOutline />);
-      expect(renderedComponent.type()).toEqual('div');
+      const renderedComponent = renderComponent();
+      expect(renderedComponent.type()).toEqual('a');
     });
 
     it('should have a className attribute', () => {
-      const renderedComponent = shallow(<StyledAOutline />);
+      const renderedComponent = renderComponent();
       expect(renderedComponent.prop('className')).toBeDefined();
     });
 
     it('should adopt a valid attribute', () => {
       const id = 'test';
-      const renderedComponent = shallow(<StyledAOutline id={id} />);
+      const renderedComponent = renderComponent({ id });
       expect(renderedComponent.prop('id')).toEqual(id);
     });
 
     it('should not adopt an invalid attribute', () => {
-      const renderedComponent = shallow(<StyledAOutline attribute={'test'} />);
+      const renderedComponent = renderComponent({ attribute: 'test' });
       expect(renderedComponent.prop('attribute')).toBeUndefined();
     });
   });
 
   describe('<StyledATransparent />', () => {
+    const renderComponent = (props = {}) =>
+      shallow(<StyledATransparent theme={theme} {...props} />);
+
     it('should render a <A> tag', () => {
-      const renderedComponent = shallow(<StyledATransparent />);
-      expect(renderedComponent.type()).toEqual('div');
+      const renderedComponent = renderComponent();
+      expect(renderedComponent.type()).toEqual('a');
     });
 
     it('should have a className attribute', () => {
-      const renderedComponent = shallow(<StyledATransparent />);
+      const renderedComponent = renderComponent();
       expect(renderedComponent.prop('className')).toBeDefined();
     });
 
     it('should adopt a valid attribute', () => {
       const id = 'test';
-      const renderedComponent = shallow(<StyledATransparent id={id} />);
+      const renderedComponent = renderComponent({ id });
       expect(renderedComponent.prop('id')).toEqual(id);
     });
 
     it('should not adopt an invalid attribute', () => {
-      const renderedComponent = shallow(
-        <StyledATransparent attribute={'test'} />
-      );
+      const renderedComponent = renderComponent({ attribute: 'test' });
       expect(renderedComponent.prop('attribute')).toBeUndefined();
     });
   });

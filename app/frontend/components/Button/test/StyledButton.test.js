@@ -4,77 +4,85 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import theme from '../../../theme';
 
 import { ButtonSolid, ButtonOutline, ButtonTransparent } from '../StyledButton';
 
 describe('<StyledButton />', () => {
   describe('<ButtonSolid />', () => {
+    const renderComponent = (props = {}) =>
+      shallow(<ButtonSolid theme={theme} {...props} />);
+
     it('should render a <button> tag', () => {
-      const renderedComponent = shallow(<ButtonSolid />);
-      expect(renderedComponent.type()).toEqual('div');
+      const renderedComponent = renderComponent();
+      expect(renderedComponent.type()).toEqual('button');
     });
 
     it('should have a className attribute', () => {
-      const renderedComponent = shallow(<ButtonSolid />);
+      const renderedComponent = renderComponent();
       expect(renderedComponent.prop('className')).toBeDefined();
     });
 
     it('should adopt a valid attribute', () => {
       const id = 'test';
-      const renderedComponent = shallow(<ButtonSolid id={id} />);
+      const renderedComponent = renderComponent({ id });
       expect(renderedComponent.prop('id')).toEqual(id);
     });
 
     it('should not adopt an invalid attribute', () => {
-      const renderedComponent = shallow(<ButtonSolid attribute={'test'} />);
+      const renderedComponent = renderComponent({ attribute: 'test' });
       expect(renderedComponent.prop('attribute')).toBeUndefined();
     });
   });
 
   describe('<ButtonOutline />', () => {
+    const renderComponent = (props = {}) =>
+      shallow(<ButtonOutline theme={theme} {...props} />);
+
     it('should render a <button> tag', () => {
-      const renderedComponent = shallow(<ButtonOutline />);
-      expect(renderedComponent.type()).toEqual('div');
+      const renderedComponent = renderComponent();
+      expect(renderedComponent.type()).toEqual('button');
     });
 
     it('should have a className attribute', () => {
-      const renderedComponent = shallow(<ButtonOutline />);
+      const renderedComponent = renderComponent();
       expect(renderedComponent.prop('className')).toBeDefined();
     });
 
     it('should adopt a valid attribute', () => {
       const id = 'test';
-      const renderedComponent = shallow(<ButtonOutline id={id} />);
+      const renderedComponent = renderComponent({ id });
       expect(renderedComponent.prop('id')).toEqual(id);
     });
 
     it('should not adopt an invalid attribute', () => {
-      const renderedComponent = shallow(<ButtonOutline attribute={'test'} />);
+      const renderedComponent = renderComponent({ attribute: 'test' });
       expect(renderedComponent.prop('attribute')).toBeUndefined();
     });
   });
 
   describe('<ButtonTransparent />', () => {
+    const renderComponent = (props = {}) =>
+      shallow(<ButtonTransparent theme={theme} {...props} />);
+
     it('should render a <button> tag', () => {
-      const renderedComponent = shallow(<ButtonTransparent />);
-      expect(renderedComponent.type()).toEqual('div');
+      const renderedComponent = renderComponent();
+      expect(renderedComponent.type()).toEqual('button');
     });
 
     it('should have a className attribute', () => {
-      const renderedComponent = shallow(<ButtonTransparent />);
+      const renderedComponent = renderComponent();
       expect(renderedComponent.prop('className')).toBeDefined();
     });
 
     it('should adopt a valid attribute', () => {
       const id = 'test';
-      const renderedComponent = shallow(<ButtonTransparent id={id} />);
+      const renderedComponent = renderComponent({ id });
       expect(renderedComponent.prop('id')).toEqual(id);
     });
 
     it('should not adopt an invalid attribute', () => {
-      const renderedComponent = shallow(
-        <ButtonTransparent attribute={'test'} />
-      );
+      const renderedComponent = renderComponent({ attribute: 'test' });
       expect(renderedComponent.prop('attribute')).toBeUndefined();
     });
   });
