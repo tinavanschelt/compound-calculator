@@ -11,7 +11,6 @@ The calculator outputs the results as a graph, which can be converted to differe
 * [Ruby 2.5.1](https://github.com/ruby/ruby)
 * [Rails 5.2.0](https://github.com/rails/rails) (run in --api mode)
 * [React 16](https://github.com/facebook/react)
-* [React Router](https://github.com/ReactTraining/react-router)
 * [Redux](https://github.com/reactjs/redux)
 * [Redux-sagas](https://github.com/redux-saga/redux-saga)
 * [Reselect](https://github.com/reactjs/reselect)
