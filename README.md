@@ -75,3 +75,32 @@ Rails
 ```
 $ rake test
 ```
+
+## Notes on Calculations
+
+The calculator calculations can be found in `calculator_controller`.
+
+For clarity, values used for calculations are as follows
+
+* Base Amount
+* Regular _Monthly_ Deposit
+* _Annual_ Interest Rate (compounded _Monthly_)
+* Calculation Period (in _Years_)
+
+There are various ways to go about things, and the two main factors to take into consideration are
+
+* When do you calculate your interest (before / after deposit has been made)
+* When do you make deposit (beginning / end of compounding period
+
+That effectively results in four different combinations to base your calculations / formula on.
+
+The example provided assumes the following:
+
+* The contribution is made at the end of the month
+* The monthly contribution is added to the accumulative total _before_ the interest calculation is made
+
+I decided to play it safe and stick with the example.
+
+Basic Formula
+0 = x MonthlyTotals[x] = BaseAmount
+1 < x MonthlyTotals[x] = (MonthlyTotals[x-1] + MonthlyDeposit) x (1 + InterestRate / 12)
