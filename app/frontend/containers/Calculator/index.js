@@ -7,6 +7,7 @@ import Button from '../../components/Button';
 import Form from '../../components/Form';
 import NumericInput from '../../components/NumericInput';
 
+import ButtonWrapper from './ButtonWrapper';
 import Wrapper from './Wrapper';
 
 import { setCalculatedData, setConvertedData } from './actions';
@@ -97,13 +98,15 @@ class Calculator extends Component {
             alignSymbol="right"
             required
           />
-          <Button color="Green" submit fill="true">
-            {calculatedData.size > 0 ? (
-              <Fragment>Recalculate</Fragment>
-            ) : (
-              <Fragment>Calculate</Fragment>
-            )}
-          </Button>
+          <ButtonWrapper>
+            <Button color="Green" submit fill="true">
+              {calculatedData.size > 0 ? (
+                <Fragment>Recalculate</Fragment>
+              ) : (
+                <Fragment>Calculate</Fragment>
+              )}
+            </Button>
+          </ButtonWrapper>
         </Form>
       </Wrapper>
     );
