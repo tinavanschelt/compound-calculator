@@ -94,13 +94,14 @@ There are various ways to go about things, and the two main factors to take into
 
 That effectively results in four different combinations to base your calculations / formula on.
 
-The example provided assumes the following:
+#### The example provided assumes the following:
 
 * The contribution is made at the end of the month
-* The monthly contribution is added to the accumulative total _before_ the interest calculation is made
+* The monthly contribution is added to the accumulative total **before** the interest calculation is made
 
 I decided to play it safe and stick with the example.
 
-Basic Formula
+#### Basic Formula
+
 0 = x MonthlyTotals[x] = BaseAmount
 1 < x MonthlyTotals[x] = (MonthlyTotals[x-1] + MonthlyDeposit) x (1 + InterestRate / 12)
