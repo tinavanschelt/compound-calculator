@@ -12,7 +12,7 @@ const FIXER_API_KEY = 'd10974c1c8630828a728e65750ae0636';
 
 export function* fetchCurrencyRates() {
   const currencies = yield select(makeSelectCurrencies());
-  const requestUrl = `http://data.fixer.io/api/latest?access_key=${FIXER_API_KEY}&symbols=${currencies}`;
+  const requestUrl = `https://data.fixer.io/api/latest?access_key=${FIXER_API_KEY}&symbols=${currencies}`;
 
   // Update API
   try {
