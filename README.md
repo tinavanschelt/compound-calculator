@@ -1,28 +1,32 @@
 # Rails + React Compound Interest Calculator
 
+A browser-based compound interest calculator. The calculator takes a base amount (€), a regular monthly deposit (€), an annual interest rate (%, compounded monthly) and a calculation period (years).
+
+The calculator outputs the results as a graph, which can be converted to different currencies once rendered. The currency conversion relies on [Fixer]([Foreign exchange rates and currency conversion API](https://fixer.io/).
+
 ## Tech Stack
 
 ### Core
 
-* Ruby 2.5.1
-* Rails 5.2.0 (run in --api mode)
-* React 16
-* React Router
-* Redux
-* Redux-sagas
-* Reselect
-* ImmutableJS
-* Styled Components
-* Recharts
+* [Ruby 2.5.1](https://github.com/ruby/ruby)
+* [Rails 5.2.0](https://github.com/rails/rails) (run in --api mode)
+* [React 16](https://github.com/facebook/react)
+* [React Router](https://github.com/ReactTraining/react-router)
+* [Redux](https://github.com/reactjs/redux)
+* [Redux-sagas](https://github.com/redux-saga/redux-saga)
+* [Reselect](https://github.com/reactjs/reselect)
+* [ImmutableJS](https://github.com/facebook/immutable-js/)
+* [Styled Components](https://github.com/styled-components/styled-components)
+* [Recharts](https://github.com/recharts/recharts)
 
 ### Testing
 
-* Jest
-* Enzyme
+* [Jest](https://github.com/facebook/jest/)
+* [Enzyme](https://github.com/airbnb/enzyme)
 
 ### Linting
 
-* Eslint
+* [Eslint](https://github.com/eslint/eslint)
 
 ## Project Structure
 
