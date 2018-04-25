@@ -3,18 +3,20 @@
   "private": true,
   "version": "1.0.0",
   "description":
-    "A basic compound interest calculator that visually displays results.",
+    "A basic browser-based compound interest calculator that visually displays results.",
   "main": "index.js",
   "repository": "https://github.com/tinavanschelt/compound-calculator",
   "author": "tinavanschelt <tinavanschelt@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "lint": "eslint **/*.js --ignore-pattern node_modules/",
+    "lint": "eslint app/frontend/**",
+    "lint:watch": "esw -w app/frontend/**",
     "build":
       "webpack && uglifyjs ./public/dist/bundle.js -c -m -o ./public/dist/bundle.min.js"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -42,11 +44,15 @@
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-esnext": "^2.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-recommended": "^2.0.0",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-watch": "^3.1.4",
     "prettier": "^1.12.1",
     "webpack-cli": "^2.0.14"
   },

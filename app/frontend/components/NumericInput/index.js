@@ -5,7 +5,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Validation from '../InputValidation';
 import Label from '../Label';
 import LabelText from '../Label/LabelText';
 import Input from '../Input';
