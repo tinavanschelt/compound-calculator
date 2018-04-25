@@ -47,8 +47,10 @@ Container/component architecture in short:
 4.  Install all the gems and depencies
     * Run `bundle install`
     * Run `yarn` (If you don't have [yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) installed it can be installed with [Homebrew](https://brew.sh/))
-5.  Run `webpack` to ensure all the javascript files have been bundled
+5.  Run `webpack -d` to ensure all the javascript files have been bundled
 6.  Start the Rails server `rails s`
+
+(Run `webpack -w` to watch your javascript files whilst developing.)
 
 ## Linting
 
