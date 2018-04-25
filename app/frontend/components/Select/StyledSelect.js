@@ -13,12 +13,16 @@ const StyledSelect = styled.select`
   cursor: pointer;
   border: 1px solid ${props => props.theme.colorGray.default};
   border-radius: ${props => props.theme.borderRadius};
-  font-size: ${props => props.theme.fontSizeReg};
+  font-size: ${props => props.theme.fontSizeLarge};
   margin: 0.5em 0;
   min-height: 50px;
   padding: 8px;
   width: 100%;
   z-index: 2;
+
+  &:focus {
+    ${props => props.theme.fontSizeLarge};
+  }
 `;
 
 export default StyledSelect;

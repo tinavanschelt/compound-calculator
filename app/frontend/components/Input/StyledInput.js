@@ -9,7 +9,7 @@ const StyledInput = styled.input`
   border: 1px solid #cdcdcd;
   border-radius: ${props => props.theme.borderRadius};
   color: #808080;
-  font-size: 14px;
+  font-size: ${props => props.theme.fontSizeLarge};
   min-height: 50px;
   padding: 0.75em;
   width: 100%;
