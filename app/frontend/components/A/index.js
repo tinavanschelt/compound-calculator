@@ -5,10 +5,10 @@
 import styled from 'styled-components';
 
 const A = styled.a`
-  color: #41addd;
+  color: ${props => props.theme.colorGreen.light};
 
   &:hover {
-    color: #6cc0e5;
+    color: ${props => props.theme.colorGreen.tint};
   }
 `;
 
