@@ -26,6 +26,7 @@ class NumericInput extends Component {
     };
   }
 
+  // Prevent user from entering alpha characters
   handleKeyDown(e, type, max) {
     this.setState({ showValid: true, loading: true });
 
@@ -54,12 +55,14 @@ class NumericInput extends Component {
     const pattern = e.target.getAttribute('pattern');
     const regex = new RegExp(pattern);
 
+    // If regex pattern was provided, test the pattern first
     if (pattern !== null) {
       if (this.validateInputPattern(value, regex)) {
         this.setState({ valid: true });
       } else {
         this.setState({ valid: false });
       }
+      // else check the length of the input
     } else if (value.length > 0) {
       this.setState({ valid: true });
     } else {
@@ -137,7 +140,7 @@ NumericInput.defaultProps = {
   label: '',
   maxChars: 0,
   name: '',
-  patter: '',
+  pattern: '',
   placeholder: '',
   symbol: '',
   required: false
