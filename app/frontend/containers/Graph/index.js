@@ -15,6 +15,7 @@ let graphHeight;
 
 class Graph extends Component {
   componentDidMount() {
+    // Determine graph width and height, graph is size is screen dependant (not responsive)
     graphWidth = this.containerRef.clientWidth - 100;
     graphHeight = this.containerRef.clientHeight - 200;
 
@@ -37,6 +38,7 @@ class Graph extends Component {
   }
 
   ensureVisible() {
+    // Make sure graph is visible (Mobile devices)
     const { data } = this.props;
 
     if (data.length > 0) {
@@ -55,6 +57,7 @@ class Graph extends Component {
       onSetCurrency(selectedCurrency);
 
       if (value === '-1') {
+        // -1 is EURO, revert to original data
         onSetConvertedData(calculatedData);
       } else {
         const convertedData = [];
