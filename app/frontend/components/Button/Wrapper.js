@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: inline-block;
-  margin: ${props => (props.margin ? props.margin : '1em 0')};
+  margin: ${props => props.margin && props.margin};
   width: ${props => (props.fill === 'true' ? '100%' : 'auto')};
 `;
 

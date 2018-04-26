@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import A from '../A';
 
-import { ButtonSolid, ButtonOutline, ButtonTransparent } from './StyledButton';
+import { ButtonSolid, ButtonOutline } from './StyledButton';
 import Wrapper from './Wrapper';
 
 function Button(props) {
@@ -16,27 +16,25 @@ function Button(props) {
     fill: props.fill,
     margin: props.margin,
     onClick: props.onClick,
-    round: props.round,
     size: props.size
   };
 
   if (props.submit) {
+    // Used with forms
     buttonProps.type = 'submit';
   }
 
   let button;
+
+  // Occassionaly you want links to look / act like buttons
+  // This allows you to render an outlined, solid or transparent button (or link) by simple adding a prop
+  // Useful in a larger design system
 
   if (props.outline) {
     button = (
       <ButtonOutline {...buttonProps}>
         {Children.toArray(props.children)}
       </ButtonOutline>
-    );
-  } else if (props.transparent) {
-    button = (
-      <ButtonTransparent {...buttonProps}>
-        {Children.toArray(props.children)}
-      </ButtonTransparent>
     );
   } else {
     button = (
@@ -46,7 +44,7 @@ function Button(props) {
     );
   }
 
-  if (props.href) {
+  if (props.href.length > 0) {
     button = <A href={props.href}>{button}</A>;
   }
 
@@ -67,14 +65,17 @@ Button.propTypes = {
   margin: PropTypes.string,
   onClick: PropTypes.func,
   outline: PropTypes.bool,
-  round: PropTypes.bool,
   size: PropTypes.string,
-  submit: PropTypes.bool,
-  transparent: PropTypes.bool
+  submit: PropTypes.bool
 };
 
 Button.defaultProps = {
-  fill: 'false'
+  color: 'Gray',
+  fill: 'false',
+  href: '',
+  margin: '1em 0',
+  outline: false,
+  submit: false
 };
 
 export default Button;

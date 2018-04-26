@@ -6,13 +6,9 @@ import { css } from 'styled-components';
 
 export const Button = css`
   background: ${props =>
-    props.color
-      ? `${props.theme[`color${props.color}`].default}`
-      : props.theme.colorGray.default};
+    props.color && `${props.theme[`color${props.color}`].default}`};
   border: ${props =>
-    props.color
-      ? `2px solid ${props.theme[`color${props.color}`].default}`
-      : `2px solid ${props.theme.colorGray.default}`};
+    props.color && `2px solid ${props.theme[`color${props.color}`].default}`};
   border-radius: ${props => props.theme.borderRadius};
   box-sizing: border-box;
   color: ${props => props.theme.colorWhite};
@@ -35,15 +31,10 @@ export const Button = css`
   width: ${props => (props.fill === 'true' ? '100%' : 'auto')};
 
   &:hover {
-    background-color: ${props =>
-      props.color
-        ? `${props.theme[`color${props.color}`].light}`
-        : props.theme.colorGray.tint};
+    background: ${props =>
+      props.color && `${props.theme[`color${props.color}`].light}`};
     border: ${props =>
-      props.color
-        ? `2px solid ${props.theme[`color${props.color}`].light}`
-        : `2px solid ${props.theme.colorGray.tint}`};
-    color: ${props => props.theme.colorWhite};
+      props.color && `2px solid ${props.theme[`color${props.color}`].light}`};
   }
 `;
 
