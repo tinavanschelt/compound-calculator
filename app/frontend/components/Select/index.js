@@ -24,24 +24,24 @@ class Select extends Component {
 
   render() {
     const { data } = this.props;
+    // The Select component takes data as an Array, 2D Array or Object and outputs a fully populated Select element
     let { firstOption } = this.props;
     const { optionKey, optionValue } = this.props;
     let options;
 
     if (data) {
-      // render first option of select
+      // Render first option of select
       if (!firstOption) {
         firstOption = 'Please Select';
       }
 
       options = [[firstOption, 'default']];
 
-      // Normalize supplied data as an two dimensional array
+      // Normalize supplied data to a two dimensional array
       // Check if data supplied is an array
       if (Array.isArray(data)) {
-        // Check if array or an object array
+        // Check if data is an array or an object array
         if (typeof data[0] === 'object') {
-          // set firstOption (if specified)
           /* eslint-disable array-callback-return */
           data.map(option => {
             const key = option[optionKey];
@@ -49,13 +49,13 @@ class Select extends Component {
 
             options.push([key, val]);
           });
-          // else it is treated as a one dimensional array
+          // else data is treated as a one dimensional array
         } else {
           data.map(option => {
             options.push([option, option]);
           });
         }
-        // else it is treated as an object
+        // else data is treated as an object
       } else {
         Object.entries(data).forEach(([key, value]) => {
           options.push([key, value]);
@@ -81,7 +81,7 @@ class Select extends Component {
                 // First check for selected value
                 if (option[1] === this.props.selected) {
                   return (
-                    <option key={option[0]} value={option[1]}>
+                    <option key={option[0]} value={option[1]} selected>
                       {option[0]}
                     </option>
                   );
@@ -109,7 +109,6 @@ Select.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  style: PropTypes.object,
   optionKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   optionValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
