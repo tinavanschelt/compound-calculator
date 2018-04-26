@@ -64,11 +64,7 @@ class Select extends Component {
     }
 
     return (
-      <Wrapper
-        className={this.props.className}
-        style={this.props.style}
-        label={this.props.label}
-      >
+      <Wrapper className={this.props.className} label={this.props.label}>
         <Label>
           {this.props.label}
           <StyledSelect
