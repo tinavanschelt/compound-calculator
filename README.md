@@ -2,7 +2,7 @@
 
 A browser-based compound interest calculator. The calculator takes a base amount (€), a regular monthly deposit (€), an annual interest rate (%, compounded monthly) and a calculation period (years).
 
-The calculator outputs the results as a graph, which can be converted to different currencies once rendered. The currency conversion relies on [Fixer]([Foreign exchange rates and currency conversion API](https://fixer.io/).
+The calculator outputs the results as a graph, which can be converted to different currencies once rendered. The currency conversion relies on [Fixer](https://fixer.io/).
 
 ## Tech Stack
 
@@ -30,7 +30,7 @@ The calculator outputs the results as a graph, which can be converted to differe
 
 ## Project Structure
 
-The application was created using `rails new --api` and follows the standard rails folder structure, with the addition of our React files. All the React-related code lives in the `/frontend` folder.
+The application was created using `rails new --api` and follows the standard rails folder structure, with the addition of a `/frontend` folder. That's where all the React-related code.
 
 The project uses [container/component architecture](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
@@ -43,14 +43,17 @@ Container/component architecture in short:
 
 1.  Download / clone the repository
 2.  `cd` into the directory
-3.  Run `ruby -v` and `rails -v` to ensure that you have Ruby and Rails installed. The versions used in this project are listed above. If you don't have Ruby or Rails installed / you have the wrong version, I recommend using [RVM](https://rvm.io/rvm/).
+3.  Run `ruby -v` and `rails -v` to ensure that you have Ruby and Rails installed.  
+    The versions used in this project are listed above.  
+    If you don't have Ruby or Rails installed or you have the wrong version, I recommend using [RVM](https://rvm.io/rvm/).
 4.  Install all the gems and depencies
     * Run `bundle install`
     * Run `yarn` (If you don't have [yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) installed it can be installed with [Homebrew](https://brew.sh/))
-5.  Run `webpack -d` to ensure all the javascript files have been bundled
+5.  Run `webpack -d` to ensure all the javascript files have been bundled and are up to date
 6.  Start the Rails server `rails s`
+7.  You're app should now be running on `localhost:3000`
 
-(Run `webpack -w` to watch your javascript files whilst developing.)
+(Run `webpack -w` to watch your javascript files during development.)
 
 ## Linting
 
@@ -84,7 +87,7 @@ $ rake test
 
 ## Notes on Calculations
 
-The calculator calculations can be found in `calculator_controller`.
+The compound calculations can be found in `calculator_controller`.
 
 For clarity, values used for calculations are as follows
 
